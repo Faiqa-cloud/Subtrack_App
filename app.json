@@ -8,7 +8,8 @@
     "scheme": "testrn",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/expo.icon",
+      "bundleIdentifier": "com.anonymous.testrn"
     },
     "android": {
       "adaptiveIcon": {
@@ -17,7 +18,8 @@
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.anonymous.testrn"
     },
     "web": {
       "output": "static",
@@ -29,10 +31,22 @@
         "expo-splash-screen",
         {
           "backgroundColor": "#208AEF",
-          "image": "./assets/images/splash-icon.png",
           "imageWidth": 76
         }
-      ]
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/Inter_24pt-Regular.ttf",
+            "./assets/fonts/Inter_24pt-SemiBold.ttf",
+            "./assets/fonts/Inter_28pt-Bold.ttf",
+            "./assets/fonts/Inter_28pt-ThinItalic.ttf"
+          ]
+        }
+      ],
+      "@clerk/expo",
+      "expo-secure-store"
     ],
     "experiments": {
       "typedRoutes": true,
