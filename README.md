@@ -1,56 +1,128 @@
-# Welcome to your Expo app 👋
+<div align="center">
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+<img src="https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+<img src="https://img.shields.io/badge/Expo-000020?style=for-the-badge&logo=expo&logoColor=white" />
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+<img src="https://img.shields.io/badge/Clerk-6C47FF?style=for-the-badge&logo=clerk&logoColor=white" />
+<img src="https://img.shields.io/badge/NativeWind-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
 
-## Get started
+# 📱 Subscription Tracker
 
-1. Install dependencies
+**A clean, modern mobile app to manage all your recurring subscriptions in one place.**
 
-   ```bash
-   npm install
-   ```
+Track renewals · Monitor spending · Stay on top of your subscriptions
 
-2. Start the app
+</div>
 
-   ```bash
-   npx expo start
-   ```
+---
 
-In the output, you'll find options to open the app in a
+## ✨ What it does
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- 🔐 **Auth** — Sign up, sign in, email verification via Clerk
+- 🏠 **Dashboard** — Overview of all active subscriptions + upcoming renewals
+- 📋 **Subscriptions** — View name, price, billing cycle, category, status, renewal date
+- 📊 **Insights** — Analytics UI ready for spending trends and charts
+- ⚙️ **Settings** — Account management and app preferences
+- 🔒 **Protected Routes** — Unauthenticated users can't access the dashboard
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+---
 
-## Get a fresh project
+## 🛠️ Tech Stack
 
-When you're ready, run:
+| Layer | Technology |
+|---|---|
+| Framework | React Native + Expo |
+| Language | TypeScript |
+| Navigation | Expo Router (file-based) |
+| Styling | NativeWind + Tailwind CSS v4 |
+| Auth | Clerk + Expo Secure Store |
+| Icons | Ionicons (`@expo/vector-icons`) |
+| Fonts | Inter (Regular, SemiBold, Bold, Thin Italic) |
+| Analytics | PostHog — user behavior tracking |
 
-```bash
-npm run reset-project
+---
+
+## 📁 Project Structure
+
+```
+├── components/
+│   ├── SubscriptionCard.tsx
+│   └── UpcomingSubscriptionCard.tsx
+├── constants/
+│   ├── data.ts        # Static subscription data
+│   ├── icons.ts       # Centralized icon references
+│   └── theme.ts       # Colors, spacing, design tokens
+├── src/app/
+│   ├── (auth)/        # SignIn.tsx · SignUp.tsx
+│   ├── (tabs)/        # index · subscription · insights · settings
+│   ├── subscription/
+│   │   └── [id].tsx   # Dynamic subscription detail
+│   └── onboarding.tsx
+└── assets/fonts/      # Inter font files
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-### Other setup steps
+## 🔐 Auth Flow
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+```
+Sign Up → Email + Password → Verify Code → Dashboard
+Sign In → Credentials → isSignedIn check → Dashboard
+```
 
-## Learn more
+Built with `ClerkProvider`, `useSignUp`, `useSignIn`, `useAuth` and secure token caching via `expo-secure-store`.
 
-To learn more about developing your project with Expo, look at the following resources:
+---
+## 🚀 Getting Started
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+# 1. Clone
+git clone https://github.com/Faiqa-cloud/subscription-tracker.git
+cd subscription-tracker
 
-## Join the community
+# 2. Install
+npm install
 
-Join our community of developers creating universal apps.
+# 3. Add environment variables
+# Create .env file and add:
+EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_key_here
+EXPO_PUBLIC_POSTHOG_API_KEY=your_posthog_key_here
+EXPO_PUBLIC_POSTHOG_HOST=https://app.posthog.com
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+# 4. Run
+npx expo start
+```
+
+---
+
+## 📌 Current Data
+
+App currently uses structured **local data** (Spotify, Notion, Figma, ChatGPT, Behance, KlingAI).  
+Architecture is designed so the data layer can be swapped for a real backend without rebuilding the UI.
+
+---
+
+## 🔮 Planned Features
+
+- [ ] Backend API + database
+- [ ] Add / Edit / Delete subscriptions
+- [ ] Monthly & yearly spending calculations
+- [ ] Spending charts and analytics
+- [ ] Push notification reminders
+- [ ] Multi-currency support
+- [ ] PDF export
+
+---
+
+## 👩‍💻 Author
+
+**Faiqa** — BS Information Technology · React Native Developer  
+🔗 [github.com/Faiqa-cloud](https://github.com/Faiqa-cloud)
+
+---
+
+<div align="center">
+
+*If this project helped you or impressed you — drop a ⭐*
+
+</div>
